@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  contact:
+    email: 'satoyu313@gmail.com'
+  license:
+    name: 'MIT'
+basePath: '/v0'
+tags:
+  - name: 'users'
+schemes:
+  - 'http'
+paths:
+  /users:
+    post:
+      tags:
+        - 'users'
+      summary: 'ユーザの新規作成'
+      operationId: 'createUser'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'input'
+          in: 'body'
+          description: '入力値'
+          required: true
+          schema:
+            $ref: '#/definitions/inputCreateUser'
+      responses:
+        200:
+          description: 'successful operation'
+        400:
+          description: 'bad request'
+    options:
+      summary: 'CORS support'
+      description: 'Enable CORS by returning correct headers'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      tags:
+        - 'CORS'
+      responses:
+        200:
+          description: 'Default response for CORS method'
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
+definitions:
+  inputCreateUser:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+      email:
+        type: 'string'
+        format: 'email'
