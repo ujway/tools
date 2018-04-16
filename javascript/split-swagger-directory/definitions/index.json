@@ -1,0 +1,31 @@
+{
+  "Profile": {
+    "type": "object",
+    "properties": {
+      "first_name": {
+        "type": "string",
+        "description": "First name of the Uber user."
+      },
+      "last_name": {
+        "type": "string",
+        "description": "Last name of the Uber user."
+      },
+      "email": {
+        "type": "string",
+        "description": "Email address of the Uber user"
+      }
+    }
+  },
+  "Error": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "message": {
+        "type": "string"
+      }
+    }
+  }
+}
